@@ -69,6 +69,13 @@
                                     <div :key="$root.userHeartbeatBar" class="col-3 col-md-4">
                                         <HeartbeatBar size="small" :monitor-id="monitor.element.id" />
                                     </div>
+                                    <div class="shadow-box big-padding text-center ping-chart-wrapper">
+                                        <div class="row">
+                                            <div class="col">
+                                                <PingChart :monitor-id="monitor.element.id" />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </template>
@@ -80,18 +87,21 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import Draggable from "vuedraggable";
 import HeartbeatBar from "./HeartbeatBar.vue";
 import Uptime from "./Uptime.vue";
 import Tag from "./Tag.vue";
+const PingChart = defineAsyncComponent(() => import("../components/PingChart.vue"));
 
 export default {
     components: {
-        Draggable,
-        HeartbeatBar,
-        Uptime,
-        Tag,
-    },
+    Draggable,
+    HeartbeatBar,
+    Uptime,
+    Tag,
+    PingChart
+},
     props: {
         /** Are we in edit mode? */
         editMode: {

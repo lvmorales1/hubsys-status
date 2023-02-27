@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="period-options">
+        <!-- <div class="period-options">
             <button type="button" class="btn btn-light dropdown-toggle btn-period-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ chartPeriodOptions[chartPeriodHrs] }}&nbsp;
             </button>
@@ -9,7 +9,7 @@
                     <a class="dropdown-item" :class="{ active: chartPeriodHrs == key }" href="#" @click="chartPeriodHrs = key">{{ item }}</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
         <div class="chart-wrapper" :class="{ loading : loading}">
             <LineChart :chart-data="chartData" :options="chartOptions" />
         </div>
